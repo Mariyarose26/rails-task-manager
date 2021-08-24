@@ -1,8 +1,12 @@
 <h1><%= @task.title %></h1>
-<h4><%= @task.details %></h4>
+<div class="details">
+  <h4><%= @task.details %></h4>
+</div>
 <h5><%= @task.completed %></h5>
-<%= link_to "Back to Main Page", root_path %>
+<hr>
+
+<%= link_to "Back to Main Page", root_path,class: "btn btn-primary" %>
 <%= link_to "Delete #{@task.title}",
-            task_path(@task),
+            task_path,
             method: :delete,
-            data: { confirm: "Are you sure?" } %>
+            data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>

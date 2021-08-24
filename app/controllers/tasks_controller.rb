@@ -11,8 +11,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.save
-
-    # no need for app/views/restaurants/create.html.erb
     redirect_to task_path(@task)
   end
   def edit
@@ -20,17 +18,15 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-
     redirect_to task_path(@task)
   end
 
   def destroy
     @task.destroy
-
-    redirect_to tasks_path
+    redirect_to root_path(@task)
   end
-
-  # private
+  
+  private
 
   def task_params
     #params.require(dynamic_id_for_the_model).permit(fields_required)
